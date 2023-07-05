@@ -21,7 +21,6 @@ Group:		Libraries
 #Source0Download: https://github.com/MirServer/wlcs/releases
 Source0:	https://github.com/MirServer/wlcs/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	24c479147fccb07de141b282ea630770
-#Patch0:	%{name}-what.patch
 URL:		https://github.com/MirServer/wlcs
 BuildRequires:	boost-devel
 BuildRequires:	cmake >= 3.5
