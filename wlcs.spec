@@ -14,19 +14,21 @@
 Summary:	Wayland Conformance Test Suite
 Summary(pl.UTF-8):	Wayland Conformance Test Suite - testy zgodności Waylanda
 Name:		wlcs
-Version:	1.5.0
-Release:	2
+Version:	1.7.0
+Release:	1
 License:	GPL v3
 Group:		Libraries
 #Source0Download: https://github.com/MirServer/wlcs/releases
 Source0:	https://github.com/MirServer/wlcs/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	24c479147fccb07de141b282ea630770
+# Source0-md5:	67d7233657987b335944fe658a76dd2c
 URL:		https://github.com/MirServer/wlcs
 BuildRequires:	boost-devel
 BuildRequires:	cmake >= 3.5
 BuildRequires:	gmock-devel
 BuildRequires:	gtest-devel
 %{?with_asan:BuildRequires:	libasan-devel}
+# c++20
+BuildRequires:	libstdc++-devel >= 6:8
 %{?with_tsan:BuildRequires:	libtsan-devel}
 %{?with_ubsan:BuildRequires:	libubsan-devel}
 BuildRequires:	pkgconfig
