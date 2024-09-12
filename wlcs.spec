@@ -15,7 +15,7 @@ Summary:	Wayland Conformance Test Suite
 Summary(pl.UTF-8):	Wayland Conformance Test Suite - testy zgodności Waylanda
 Name:		wlcs
 Version:	1.7.0
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		Libraries
 #Source0Download: https://github.com/MirServer/wlcs/releases
