@@ -15,13 +15,14 @@ Summary:	Wayland Conformance Test Suite
 Summary(pl.UTF-8):	Wayland Conformance Test Suite - testy zgodności Waylanda
 Name:		wlcs
 Version:	1.7.0
-Release:	2
+Release:	3
 License:	GPL v3
 Group:		Libraries
-#Source0Download: https://github.com/MirServer/wlcs/releases
-Source0:	https://github.com/MirServer/wlcs/archive/v%{version}/%{name}-%{version}.tar.gz
+#Source0Download: https://github.com/canonical/wlcs/releases
+Source0:	https://github.com/canonical/wlcs/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	67d7233657987b335944fe658a76dd2c
-URL:		https://github.com/MirServer/wlcs
+Patch0:		%{name}-remove.patch
+URL:		https://github.com/canonical/wlcs
 BuildRequires:	boost-devel
 BuildRequires:	cmake >= 3.5
 BuildRequires:	gmock-devel
@@ -32,6 +33,7 @@ BuildRequires:	libstdc++-devel >= 6:8
 %{?with_tsan:BuildRequires:	libtsan-devel}
 %{?with_ubsan:BuildRequires:	libubsan-devel}
 BuildRequires:	pkgconfig
+BuildRequires:	sed >= 4.0
 # client, server, scanner
 BuildRequires:	wayland-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -57,6 +59,10 @@ Pliki nagłówkowe wlcs.
 
 %prep
 %setup -q
+%patch0 -p1
+
+# maybe-uninitialized warning from std::optional<std::function>
+%{__sed} -i -e '/CXX_FLAGS/ s/-Werror //' CMakeLists.txt
 
 %build
 install -d build
