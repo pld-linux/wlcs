@@ -59,7 +59,7 @@ Pliki nagłówkowe wlcs.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 # maybe-uninitialized warning from std::optional<std::function>
 %{__sed} -i -e '/CXX_FLAGS/ s/-Werror //' CMakeLists.txt
